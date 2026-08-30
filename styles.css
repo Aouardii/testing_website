@@ -25,9 +25,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
+  width: 100%;
+  max-width: 100%;
   margin: 0;
   color: var(--ink);
   background: var(--paper);
@@ -729,6 +732,7 @@ svg {
     linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
     var(--forest-deep);
   background-size: 48px 48px;
+  overflow: hidden;
 }
 
 .menu-preview__intro {
@@ -750,6 +754,8 @@ svg {
 
 .menu-cards {
   display: grid;
+  width: 100%;
+  min-width: 0;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-top: clamp(4rem, 8vw, 7rem);
@@ -757,6 +763,9 @@ svg {
 
 .menu-card {
   display: flex;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
   min-height: 34rem;
   flex-direction: column;
   justify-content: space-between;
@@ -896,33 +905,38 @@ svg {
   stroke-width: 2.5;
 }
 
-.story__name {
+.story__equation {
   position: absolute;
   z-index: 1;
   display: flex;
   align-items: center;
   gap: 0.7rem;
+  white-space: nowrap;
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 7vw, 7rem);
   font-weight: 800;
   letter-spacing: -0.08em;
   line-height: 1;
 }
 
-.story__name small {
+.story__equation small {
   font-family: var(--font-mono);
   font-size: 1rem;
   letter-spacing: 0;
 }
 
-.story__name--ali {
-  top: 13%;
-  left: 8%;
+.story__equation--founders {
+  top: 10%;
+  left: 50%;
+  font-size: clamp(2.7rem, 5.3vw, 5.4rem);
+  transform: translateX(-50%);
 }
 
-.story__name--zoe {
-  right: 8%;
-  bottom: 12%;
+.story__equation--result {
+  bottom: 9%;
+  left: 50%;
+  color: var(--forest);
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  transform: translateX(-50%);
 }
 
 .story__copy h2 {
@@ -1572,15 +1586,21 @@ svg {
   }
 
   .menu-card h3 {
-    font-size: 4.2rem;
+    max-width: 100%;
+    font-size: clamp(3.15rem, 16vw, 4.2rem);
   }
 
   .story__visual {
     min-height: 29rem;
   }
 
-  .story__name {
-    font-size: 3.7rem;
+  .story__equation--founders {
+    gap: 0.45rem;
+    font-size: clamp(2.15rem, 11vw, 3.7rem);
+  }
+
+  .story__equation--result {
+    font-size: clamp(3rem, 16vw, 4rem);
   }
 
   .opening__content {
